@@ -76,6 +76,7 @@ Alphas=[]
 ind=0
 Epsilons=[]
 num=0
+ns=2000
 for a in range(10,510,10):
     alpha=a*0.01
     Alphas.append(alpha)
@@ -89,7 +90,7 @@ for a in range(10,510,10):
             pp=np.where(pred>0,1,-1)
             y.append(pp)
         y=np.array(y)   
-        Per=Perceptron_MinOver(2000)# Creates an object with ns=number of maximum epochs.
+        Per=Perceptron_MinOver(ns)# Creates an object with ns=number of maximum epochs.
         Per.fit(X,y)
         num=num+1
         print(str(500-num)+' iterations '+'to'+' end')
