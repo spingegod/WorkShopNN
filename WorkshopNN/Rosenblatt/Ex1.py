@@ -72,13 +72,13 @@ S=np.zeros(10)
 Alphas=[]
 ind=0
 N=20#Dimension of vectors
-ns=50
+ns=100
 for a in range(75,325,25):#alphas 
     ind=ind+1
     alpha=a*0.01
     Alphas.append(alpha)
     P=round(alpha*N)# Number of vectors 
-    for i in  range(ns):
+    for i in  range(50):
         ds=generate_ds(P,N)
         X=ds[:,:-1]
         Y=ds[:,-1:]
@@ -86,7 +86,7 @@ for a in range(75,325,25):#alphas
         for i in range(len(Y)):
             y.append(Y[i][0])  
         y=np.array(y)    
-        Per=Perceptron(100)# Creates an object with ns=number of maximum epochs.
+        Per=Perceptron(ns)# Creates an object with ns=number of maximum epochs.
         Per.fit(X,y)
         if max(Per.A)==100:
             S[ind-1]=S[ind-1]+1#function to count sucsessfull runs
